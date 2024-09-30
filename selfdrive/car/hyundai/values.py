@@ -85,6 +85,7 @@ class CAR(StrEnum):
   ELANTRA = "HYUNDAI ELANTRA 2017"
   ELANTRA_GT_I30 = "HYUNDAI I30 N LINE 2019 & GT 2018 DCT"
   ELANTRA_2021 = "HYUNDAI ELANTRA 2021"
+  ELANTRA_2024 = "HYUNDAI ELANTRA 2024"
   ELANTRA_2022_NON_SCC = "HYUNDAI ELANTRA SE 2022 NON-SCC"
   ELANTRA_HEV_2021 = "HYUNDAI ELANTRA HYBRID 2021"
   HYUNDAI_GENESIS = "HYUNDAI GENESIS 2015-2016"
@@ -189,6 +190,7 @@ CAR_INFO: Dict[str, Optional[Union[HyundaiCarInfo, List[HyundaiCarInfo]]]] = {
     HyundaiCarInfo("Hyundai i30 2017-19", car_parts=CarParts.common([CarHarness.hyundai_e])),
   ],
   CAR.ELANTRA_2021: HyundaiCarInfo("Hyundai Elantra 2021-23", video_link="https://youtu.be/_EdYQtV52-c", car_parts=CarParts.common([CarHarness.hyundai_k])),
+  CAR.ELANTRA_2024: HyundaiCarInfo("Hyundai Elantra 2024", car_parts=CarParts.common([CarHarness.hyundai_k])),
   CAR.ELANTRA_HEV_2021: HyundaiCarInfo("Hyundai Elantra Hybrid 2021-23", video_link="https://youtu.be/_EdYQtV52-c",
                                        car_parts=CarParts.common([CarHarness.hyundai_k])),
   CAR.HYUNDAI_GENESIS: [
@@ -549,7 +551,7 @@ CHECKSUM = {
   "crc8": [CAR.SANTA_FE, CAR.SONATA, CAR.PALISADE, CAR.KIA_SELTOS, CAR.ELANTRA_2021, CAR.ELANTRA_HEV_2021,
            CAR.SONATA_HYBRID, CAR.SANTA_FE_2022, CAR.KIA_K5_2021, CAR.SANTA_FE_HEV_2022, CAR.SANTA_FE_PHEV_2022,
            CAR.KIA_K5_HEV_2020, CAR.CUSTIN_1ST_GEN, CAR.ELANTRA_2022_NON_SCC, CAR.GENESIS_G70_2021_NON_SCC,
-           CAR.KIA_SELTOS_2023_NON_SCC, CAR.BAYON_1ST_GEN_NON_SCC],
+           CAR.KIA_SELTOS_2023_NON_SCC, CAR.BAYON_1ST_GEN_NON_SCC, CAR.ELANTRA_2024],
   "6B": [CAR.KIA_SORENTO, CAR.HYUNDAI_GENESIS],
 }
 
@@ -572,7 +574,7 @@ CANFD_RADAR_SCC_CAR = {CAR.GENESIS_GV70_1ST_GEN, CAR.KIA_SORENTO_4TH_GEN, CAR.GE
 CANFD_UNSUPPORTED_LONGITUDINAL_CAR = {CAR.IONIQ_6, CAR.KONA_EV_2ND_GEN}
 
 # The camera does SCC on these cars, rather than the radar
-CAMERA_SCC_CAR = {CAR.KONA_EV_2022, }
+CAMERA_SCC_CAR = {CAR.KONA_EV_2022, CAR.ELANTRA_2024}
 
 # these cars use a different gas signal
 HYBRID_CAR = {CAR.IONIQ_PHEV, CAR.ELANTRA_HEV_2021, CAR.KIA_NIRO_PHEV, CAR.KIA_NIRO_HEV_2021, CAR.SONATA_HYBRID, CAR.KONA_HEV, CAR.IONIQ,
@@ -605,6 +607,7 @@ DBC = {
   CAR.ELANTRA: dbc_dict('hyundai_kia_generic', None),
   CAR.ELANTRA_GT_I30: dbc_dict('hyundai_kia_generic', None),
   CAR.ELANTRA_2021: dbc_dict('hyundai_kia_generic', None),
+  CAR.ELANTRA_2024: dbc_dict('hyundai_kia_generic', None),
   CAR.ELANTRA_2022_NON_SCC: dbc_dict('hyundai_kia_generic', None),
   CAR.ELANTRA_HEV_2021: dbc_dict('hyundai_kia_generic', None),
   CAR.GENESIS_G70: dbc_dict('hyundai_kia_generic', None),
